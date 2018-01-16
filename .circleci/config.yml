@@ -1,0 +1,53 @@
+version: 2.0
+jobs:
+  build:
+    # The primary container is an instance of the first list image listed. Your build commands run in this container.
+    docker:
+      - image: torounit/wp-theme-test-env:latest
+    working_directory: /var/www/wordpress/wp-content/themes/wordcamp-japan-theme
+    steps:
+      - checkout
+
+      - setup_remote_docker:
+          docker_layer_caching: true
+
+      # npm
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install npm
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: build
+          command: npm run build
+
+      # Server
+      - run:
+          name: Start Services
+          command: |
+            sudo service php7.0-fpm start
+            sudo service nginx start
+            sudo service mysql start
+
+      # WordPress
+      - run:
+          name: Activate Theme
+          command: wp theme activate wordcamp-japan-theme --path=/var/www/wordpress
+      - run:
+          name: Access WordPress
+          command: curl http://localhost > /dev/null
+
+      # screenshots
+      - run:
+          name: Take screenshots.
+          command: node ./screenshot.js
+
+      # Store
+      - store_artifacts:
+          path: artifacts
+          destination: screenshots
+

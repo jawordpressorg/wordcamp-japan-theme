@@ -18,11 +18,17 @@
   "scripts": {
     "build": "npm run scss && npm run postcss",
     "scss": "node-sass ./scss/ -o ./css/",
-    "postcss": "postcss ./css/**/*.css --use autoprefixer -d ./css/"
+    "postcss": "postcss ./css/**/*.css --use autoprefixer -d ./css/",
+    "docker-start": "docker run --name wordcamp-japan-theme -u www-data -v `pwd`:/var/www/wordpress/wp-content/themes/wordcamp-japan-theme --shm-size 2048m -p 80:80 -d torounit/wp-theme-test-env",
+    "docker-config": "docker exec wordcamp-japan-theme bash -c 'wp theme activate wordcamp-japan-theme --path=/var/www/wordpress'",
+    "docker-stop": "docker kill wordcamp-japan-theme && docker rm wordcamp-japan-theme"
   },
   "devDependencies": {
     "autoprefixer": "7.1.5",
     "node-sass": "4.5.3",
     "postcss-cli": "4.1.1"
+  },
+  "dependencies": {
+    "chromy": "^0.5.7"
   }
 }
