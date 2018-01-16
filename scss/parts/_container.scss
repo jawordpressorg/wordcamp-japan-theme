@@ -30,7 +30,8 @@
 	}
 
 	@media screen and (min-width: $viewportPC) {
-		width: 1100px;
+		width: 95%;
+		max-width: 1100px;
 		margin: 0 auto;
 		padding: 0;
 	}
