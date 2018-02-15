@@ -10,3 +10,13 @@ $viewportPC: 1024px;
 @import "parts/_navigation.scss";
 @import "parts/_entry.scss";
 @import "parts/_about.scss";
+
+.background-fixed .panel-image {
+    background-attachment: initial;
+	background-size: contain;
+	height: auto;
+}
+
+.panel-image::before {
+	display: none;
+}
