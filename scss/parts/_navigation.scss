@@ -76,6 +76,10 @@
 
 		.sub-menu {
 			display: block;
+			
+			.sub-menu {
+				margin-left: 20px;
+			}
 		}
 	}
 
