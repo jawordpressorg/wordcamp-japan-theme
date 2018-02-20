@@ -1,0 +1,11 @@
+.site-footer  {
+    .widget-column {
+        .footer-widget-1,
+        .footer-widget-2 {
+            @media screen and (min-width: 48em) {
+                float: none;
+                width: 100%;
+            }
+        }
+    }
+}

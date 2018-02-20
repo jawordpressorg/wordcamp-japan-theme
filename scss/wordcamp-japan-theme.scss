@@ -7,8 +7,11 @@ $viewportPC: 1024px;
 
 @import "parts/_container.scss";
 @import "parts/_header.scss";
+@import "parts/_footer.scss";
+@import "parts/_widget.scss";
 @import "parts/_navigation.scss";
 @import "parts/_entry.scss";
+@import "parts/_front-page.scss";
 @import "parts/_about.scss";
 
 .background-fixed .panel-image {
@@ -20,3 +23,5 @@ $viewportPC: 1024px;
 .panel-image::before {
 	display: none;
 }
+
+
