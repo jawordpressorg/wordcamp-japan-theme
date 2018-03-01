@@ -217,12 +217,15 @@ body.page:not(.twentyseventeen-front-page) .page-title,
 .single-post .page-title,
 .page .entry-title,
 .page .page-title {
-  font-size: 1.2rem;
-  font-weight: normal;
-  color: #ccc; }
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #000; }
+
+.entry-header .entry-title {
+    margin: 0.25em 0; }
 
 .entry-title a, .page-title a {
-  color: #ccc; }
+  color: #000; }
 
 @media screen and (min-width: 48em) {
   .page:not(.home) #content {
