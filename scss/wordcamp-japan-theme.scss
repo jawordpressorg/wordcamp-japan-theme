@@ -5,6 +5,10 @@ $viewport48em: 48em;
 $viewportTB: 768px;
 $viewportPC: 1024px;
 
+html[lang="ja"] body {
+	line-height: 1.75;
+}
+
 @import "parts/_container.scss";
 @import "parts/_header.scss";
 @import "parts/_footer.scss";
